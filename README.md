@@ -27,3 +27,9 @@ characteristics like phone numbers.
 Note: Some of the features of the app may to be displayed in the screen because Foursquare doesn't have the data on its database.
 
 ![highlighted](https://github.com/anferebu/EMERGENCY-SERVICES-TRACKER/blob/master/highlighted%20object.jpg)
+
+<strong>INSTRUCTIONS</strong>
+
+1. Download and unzip the repository folder.
+2. Open the index.html file in Google Chrome to see the app.
+
