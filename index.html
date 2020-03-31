@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--Sets viewport-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Title-->
+    <title>Bucheli Emergency Services</title>
+
+    <!--CSS File-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--Bootstrap File-->
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|IBM+Plex+Serif" rel="stylesheet"> <!--Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400" rel="stylesheet">
+
+</head>
+<body>
+  <!--This will divide the page into two portions; one part will the map searches and the other is for the map-->
+  <div class="container-fluid"> <!--Using container-fluid instead of container will help to ensure that the map extends to the end of the right side of the page -->
+      <div class="row">
+          <div class="col-md-4">  <!--Search box and location options-->
+              <div class="search-options-section">
+                <header> 
+                <!--Search box header and description-->
+                <h1 class="search-title">Andrés R. Bücheli Emergency Services</h1>
+                <hr class="line-under-search-title">
+                <p class="search-description">LOCATE THE NEAREST POLICE STATION OR HOSPITAL IN NIZHNY NOVGOROD</p>
+                <hr class="line-under-search-description">
+                  <!--Setting up up the search box -->
+                <!--The submit binding adds an event handler so that the connected JavaScript function will be
+                invoked when the search button is clicked on. Used with the form element. -->
+                <form class="form-inline search-form-design" id="form-search" data-bind="submit: search">
+                  <!--The expected input is text. This also means that
+                  we want to bind value to a variable called query. The place holder text for the search box
+                  will be "Search" until text is typed into the box. -->
+                  <input type="text" class="form-control search-box" data-bind="value: query" id="query-input" placeholder="Search"
+                  autofocus>
+                  <!--The button is supposed to be used to submit the form. The button will will have
+                a search icon -->
+                <button type="submit" id="search-submit-button" class="btn search-submit-button-background">
+                  <div class="w3-small search-icon-design"> <!--Sets the properties/style for the search icon -->
+                    <i class="material-icons search-button-background">search</i> <!--Requesting to use the search icon -->
+                  </div>
+                </button>
+                </form>
+                <!-- This determines the number of results from the search filter-->
+                <p id="query-summary" data-bind="text: queryResult"> </p>
+                <hr class="line-under-search-form">
+              </header>
+        <!--List the results of the search for emergency services -->
+        <aside>
+          <ul class="search-list" data-bind="foreach: {data: FilteredserviceList, as: 'service'}" id="list">
+            <li data-bind="click: $root.selectService" class="list-group-item">
+                <span data-bind="text: service.name"></span>
+            </li>
+          </ul>
+          <hr class="line-under-search-list">
+        </aside>
+      </div> 
+
+    <!-- Google Map-->
+    <div class="col-md-8" id="map"> </div>
+
+  </div> 
+
+<script src="js/knockout.js"> </script>
+<script src="js/jQuery.js"> </script>
+<script src="js/app.js"> </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqJb4f9gKuHo2KAk1F8Bb8ariKplyD4a0&callback=initMap" onerror="googleError()"> </script>
+
+</body>
+</html>
