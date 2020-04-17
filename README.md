@@ -33,4 +33,4 @@ Note: Some of the features of the app may to be displayed in the screen because 
 1. Download and unzip the repository folder.
 2. Open the index.html file in Google Chrome to see the app.
 
-Author: Andrés R. Bucheli.
+# Author: Andrés R. Bucheli.
